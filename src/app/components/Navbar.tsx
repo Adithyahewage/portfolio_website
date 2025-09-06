@@ -3,7 +3,13 @@
 import React, { use, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
+import {
+  Bars3Icon,
+  MoonIcon,
+  SunIcon,
+  XMarkIcon,
+} from "@heroicons/react/16/solid";
+import { div } from "framer-motion/client";
 
 const Navbar = () => {
   const theme = "dark"; // todo: get theme from context
@@ -34,27 +40,64 @@ const Navbar = () => {
               const isActive = pathname === item.href;
               return (
                 <Link
-                key={item.href}
-                href={item.href}
-                className={` hover:text-primary transition-colors font-medium duration-300 ${isActive ? "text-primary font-medium" : ""}`}
-              >
-                {item.label}
-              </Link>
-              )
+                  key={item.href}
+                  href={item.href}
+                  className={` hover:text-primary transition-colors font-medium duration-300 ${
+                    isActive ? "text-primary font-medium" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
             })}
             <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-primary transition-colors cursor-pointer">
-              {
-                theme === "dark" ? (
-                  <SunIcon className="h-5 w-5"/>
-                ) : (
-                  <MoonIcon className="h-5 w-5"/>
-                )
-              }
+              {theme === "dark" ? (
+                <SunIcon className="h-5 w-5" />
+              ) : (
+                <MoonIcon className="h-5 w-5" />
+              )}
             </button>
           </div>
+
+          {/* mobile menu button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden p-2 rounded-lg dark:hover:bg-gray-800 transition-colors cursor-pointer"
+          >
+            {isMobileMenuOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
+          </button>
         </div>
 
         {/* mobile menu  */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="space-y-4 py-4">
+              {menuItems.map((item, index) => (
+                <div key={index} onClick={toggleMobileMenu}>
+                  <Link
+                    href={item.href}
+                    className="block py-2 hover:text-primary transition-colors duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              ))}
+              <div>
+                <button className="flex items-center p-2 hover:text-primary transition-colors duration-300">
+                  {theme === "dark" ? (
+                    <><SunIcon className="h-5 w-5 mr-2"/>Light Mode</>
+                  ) : (
+                    <><MoonIcon className="h-5 w-5 mr-2"/>Dark Mode</>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -8,7 +8,7 @@ import { fadeInUp, fadeIn, scaleIn } from '@/utils/animations';
 
 export default function Hero() {
   return (
-    <section className="pt-20 pb-28">
+    <section className="pt-16 pb-28">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div 
@@ -36,7 +36,7 @@ export default function Hero() {
             {...fadeInUp}
             transition={{ delay: 0.4 }}
           >
-            Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
+            Full Stack Developer | SE Intern | Open Source Contributor
           </motion.p>
           <motion.div 
             className="flex justify-center space-x-4 mb-8"
@@ -85,7 +85,7 @@ export default function Hero() {
             >
               <Link
                 href="/projects"
-                className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors"
               >
                 View Projects
               </Link>

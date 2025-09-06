@@ -9,7 +9,6 @@ import {
   SunIcon,
   XMarkIcon,
 } from "@heroicons/react/16/solid";
-import { div } from "framer-motion/client";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {

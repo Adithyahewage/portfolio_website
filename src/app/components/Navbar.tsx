@@ -50,7 +50,7 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-primary transition-colors cursor-pointer">
+            <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-white hover:text-primary transition-colors cursor-pointer">
               {theme === "dark" ? (
                 <SunIcon className="h-5 w-5" />
               ) : (
@@ -87,7 +87,7 @@ const Navbar = () => {
                 </div>
               ))}
               <div>
-                <button className="flex items-center p-2 hover:text-primary transition-colors duration-300">
+                <button className="flex items-center p-2 rounded-lg hover:bg-gray-100 hover:text-primary transition-colors duration-300">
                   {theme === "dark" ? (
                     <><SunIcon className="h-5 w-5 mr-2"/>Light Mode</>
                   ) : (

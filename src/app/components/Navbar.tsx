@@ -10,9 +10,10 @@ import {
   XMarkIcon,
 } from "@heroicons/react/16/solid";
 import { div } from "framer-motion/client";
+import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
-  const theme = "dark"; // todo: get theme from context
+  const {theme, toggleTheme}= useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const toggleMobileMenu = () => {
@@ -27,7 +28,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-dark/80 backdrop-blur-sm z-50">
+    <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors duration-300">
       <div className="container max-w-7xl mx-auto px-4">
         {/* desktop menu */}
         <div className="flex items-center justify-between h-16">
@@ -50,7 +51,7 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-white hover:text-primary transition-colors cursor-pointer">
+            <button onClick={toggleTheme} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white hover:text-primary transition-colors cursor-pointer">
               {theme === "dark" ? (
                 <SunIcon className="h-5 w-5" />
               ) : (
@@ -87,7 +88,7 @@ const Navbar = () => {
                 </div>
               ))}
               <div>
-                <button className="flex items-center p-2 rounded-lg hover:bg-gray-100 hover:text-primary transition-colors duration-300">
+                <button onClick={toggleTheme} className="flex items-center p-2 hover:text-primary transition-colors duration-300 cursor-pointer">
                   {theme === "dark" ? (
                     <><SunIcon className="h-5 w-5 mr-2"/>Light Mode</>
                   ) : (

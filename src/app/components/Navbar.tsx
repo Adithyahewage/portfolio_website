@@ -23,7 +23,7 @@ const Navbar = () => {
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
     { href: "/blogs", label: "Blogs" },
-    { href: "/contact", label: "Contact" },
+    { href: "/contact", label: "Hire me" },
   ];
 
   return (
@@ -38,17 +38,28 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => {
               const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={` hover:text-primary transition-colors font-medium duration-300 ${
-                    isActive ? "text-primary font-medium" : ""
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
+                if (item.label === "Hire me") {
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="bg-primary text-white px-4 py-2 rounded-lg shadow hover:bg-primary/80 transition-colors font-semibold duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`hover:text-primary transition-colors font-medium duration-300 ${
+                      isActive ? "text-primary font-medium" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
             })}
             <button onClick={toggleTheme} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white hover:text-primary transition-colors cursor-pointer">
               {theme === "dark" ? (
@@ -78,12 +89,21 @@ const Navbar = () => {
             <div className="space-y-4 py-4">
               {menuItems.map((item, index) => (
                 <div key={index} onClick={toggleMobileMenu}>
-                  <Link
-                    href={item.href}
-                    className="block py-2 hover:text-primary transition-colors duration-300"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.label === "Hire me" ? (
+                    <Link
+                      href={item.href}
+                      className="block bg-primary text-white px-4 py-2 rounded-lg shadow hover:bg-primary/80 transition-colors font-semibold duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="block py-2 hover:text-primary transition-colors duration-300"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </div>
               ))}
               <div>

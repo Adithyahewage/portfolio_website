@@ -37,7 +37,7 @@ export default function Blogs() {
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Link href={`/blogs/${blog.slug}`} className="hover:text-primary transition-colors">
+                <Link href={`https://medium.com/@adithyahewage69/${blog.slug}`} target='_blank' className="hover:text-primary transition-colors">
                   {blog.title}
                 </Link>
               </motion.h2>

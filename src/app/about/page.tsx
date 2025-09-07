@@ -180,8 +180,8 @@ export default function About() {
             </h3>
             <p className="text-primary mb-2">Rahula College Matara • 2013 - 2022</p>
             <p className="text-secondary">
-              Completed A/Ls in Maths stream. Achieved 2A's in Combined Mathematics and Chemistry, and 1B in Physics.
-              Completed O/Ls with 9A's. 
+              Completed A/Ls in Maths stream. Achieved 2A&apos;s in Combined Mathematics and Chemistry, and 1B in Physics.
+              Completed O/Ls with 9A&apos;s.
             </p>
           </motion.div>
         </motion.div>
